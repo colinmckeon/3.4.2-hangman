@@ -1,6 +1,6 @@
 var commonWords = require('./common-words.js');
 commonWords = commonWords.filter(function(word){
-  // return word.length
+  return word.length >= 3;
 })
 
 var randomWord;
