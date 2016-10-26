@@ -1,32 +1,44 @@
 var commonWords = require('./common-words.js');
+commonWords = commonWords.filter(function(word){
+  // return word.length
+})
 
-var randomWord = commonWords[Math.floor(Math.random() * commonWords.length)].toLowerCase();
+var randomWord;
 var randomWordHolder = document.getElementById('random-word-holder');
-console.log(randomWord);
 
+var remainingGuesses;
 var guessesRemainingHolder = document.getElementById('guesses-remaining-holder');
-var remainingGuesses = 8;
 
-for (var i = 0; i < randomWord.length; i++){
-  var span = document.createElement('span');
-  span.textContent = '_';
-  randomWordHolder.appendChild(span);
-}
-
-guessesRemainingHolder.textContent = remainingGuesses;
+var correctGuesses;
 
 document.getElementById('letter').addEventListener('keyup', letterCheck);
 
+function startGame(){
+  remainingGuesses = 8;
+  randomWord = commonWords[Math.floor(Math.random() * commonWords.length)].toLowerCase();
+  console.log(randomWord);
+  correctGuesses = 0;
+  guessesRemainingHolder.textContent = remainingGuesses;
+
+  randomWordHolder.textContent = '';
+
+  for (var i = 0; i < randomWord.length; i++){
+    var span = document.createElement('span');
+    span.textContent = '_';
+    randomWordHolder.appendChild(span);
+  }
+}
+
 function letterCheck(e){
-  var correctGuesses = 0;
   if (e.which <= 90 && e.which >= 65){
     var letter = e.key;
+    remainingGuesses -= 1;
     if (randomWord.indexOf(letter) !== -1){
-      correctGuesses += 1;
       for (var i = 0; i < randomWord.length; i++){
         if (randomWord[i] == letter){
           document.getElementById('random-word-holder').children[i].textContent = letter;
           document.getElementById('letter').value = '';
+          correctGuesses += 1;
         }
       }
 
@@ -46,11 +58,24 @@ function letterCheck(e){
   if (correctGuesses === randomWord.length) {
     gameWon();
   }
-  // remainingGuesses -= 1;
 
-  // guessesRemainingHolder.textContent = remainingGuesses;
+  if(remainingGuesses == 0){
+    gameOver();
+  }
+
+  guessesRemainingHolder.textContent = remainingGuesses;
 }
 
 function gameWon(){
-  alert('You won the game!');
+  alert('You won the game! The word was ' + randomWord + '!');
+  startGame();
+
 }
+
+function gameOver(){
+  alert('GAME OVER');
+  startGame();
+}
+
+
+startGame();
