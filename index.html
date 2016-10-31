@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>3.4.2-hangman</title>
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <footer>
+    <p>
+      <b>DIRECTIONS:</b> Choose a letter wisely... Regardless of correct or
+      <br>
+      incorrect, a guess will be subtracted from 8 total guesses. Remember
+      <br>
+      what letter you have guessed or it will come back to haunt you!!
+    </p>
+  </footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+
+                <div id="content-container">
+                  <div id="random-word-holder"></div>
+                  <div id="guesses-remaining-holder"></div>
+                  <section>guesses remaining...</section>
+                  <br>
+                  <br>
+                  <br>
+                  <div>
+                      <label id="guess-label" for="letter">GUESS A LETTER</label>
+                      <br>
+                      <input id="letter" type="text" name="guess" value="">
+                  </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="js/bundle.js"></script>
+</body>
+
+</html>
