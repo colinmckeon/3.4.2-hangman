@@ -1,5 +1,8 @@
 // Here are the 100 most popular words in English, as totally
 // stolen from here: https://gist.github.com/gravitymonkey/2406023
+
+
+
 var commonWords = [
   'the', 'of', 'and', 'a', 'to', 'in', 'is', 'you', 'that', 'it', 'he',
   'was', 'for', 'on', 'are', 'as', 'with', 'his', 'they', 'I', 'at', 'be',

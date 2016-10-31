@@ -16,10 +16,42 @@ img {
   max-width: 100%;
 }
 
+body{
+  background: url(https://images3.alphacoders.com/570/57007.jpg) no-repeat center center fixed;
+  background-size: cover;
+}
+
 span{
   margin-right: 5px;
+  font-size: 80px;
 }
 
 span:last-child{
   margin: auto;
+}
+
+.container{
+  margin-top: 80px;
+}
+
+#guess-label{
+  font-size: 24px;
+  color: white;
+}
+
+#guesses-remaining-holder{
+  display: inline-block;
+}
+
+section{
+  display: inline-block;
+}
+
+#letter{
+margin-left: 29px;
+}
+
+p{
+  background-color: white;
+  display: inline-block;
 }
